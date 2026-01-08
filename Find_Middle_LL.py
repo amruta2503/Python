@@ -56,4 +56,50 @@ middle = LL.middle_node(count)
 print(f"Middle node of the list is: {middle}")
 
 #Optimal 
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    
+    def __init__(self):
+        self.head = None
         
+    def traverse(self):
+        temp = self.head
+        
+        while temp:
+            print(temp.data,end="->")
+            temp = temp.next
+        print("None")
+    
+    def insert_At_Start(self,data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        
+    def tortoise_and_hare(self):
+        slow = self.head
+        fast = self.head
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow.data
+    
+        
+LL = LinkedList()
+
+LL.insert_At_Start(25)
+LL.insert_At_Start(20)
+LL.insert_At_Start(15)
+LL.insert_At_Start(10)
+LL.insert_At_Start(25)
+
+LL.traverse()
+
+middle = LL.tortoise_and_hare()
+print(f"Midddle of the Linked List is {middle}")
+
+         
