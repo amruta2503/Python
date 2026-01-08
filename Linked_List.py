@@ -17,7 +17,7 @@ class LinkedList:
         print("None")
         
     def insert_At_Start(self,data):
-        new_node = Node(10)
+        new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
     
